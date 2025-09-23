@@ -1,7 +1,7 @@
 
 ## 🌐 Acesse o site
 
-👉 [Clique aqui para ver o site publicado no GitHub Pages](https://CintiaSedenho.github.io/petamor/)
+👉 [Clique aqui para ver o site publicado no GitHub Pages](https://CintiaSedenho.github.io/lovepet/)
 
 ## ✨ Funcionalidades
 
