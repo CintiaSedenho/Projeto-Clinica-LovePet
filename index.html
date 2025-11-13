@@ -9,30 +9,111 @@
 
     body { font-family: Arial, sans-serif; background-color: #f0f9f9; color: #222; }
 
-    header { background-color: #0077b6; color: white; padding: 20px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    header {
+      background-color: #0077b6;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; transition: color 0.3s; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
     nav a:hover { color: #c1f0c1; }
 
     section { padding: 80px 20px; text-align: center; }
 
-    .hero { background: linear-gradient(135deg, #00b4d8, #90e0ef); color: white; padding: 100px 20px; }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+    /* === HERO (banner) === */
+    .hero {
+      background: linear-gradient(135deg, #00b4d8, #90e0ef, #00c49a);
+      color: white;
+      padding: 100px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-    .cta-button { background-color: #0077b6; color: #fff; padding: 15px 30px; border-radius: 30px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .hero-content {
+      flex: 1 1 50%;
+      text-align: left;
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: #0077b6;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
     .cta-button:hover { background-color: #00b4d8; }
 
-    .sobre, .servicos, .contato { background-color: #fff; margin: 40px auto; max-width: 1000px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 40px; }
+    /* === IMAGEM DO BANNER === */
+    .hero img {
+      flex: 1 1 40%;
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+  clip-path: path('M10,150 C30,80 100,20 180,40 C260,60 330,100 360,160 C390,220 360,280 300,320 C240,360 160,370 100,330 C40,290 -10,220 10,150Z');
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+}
+
+    .conteudo {
+      background-color: #fff;
+      margin: 40px auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
 
     .servicos ul { list-style: none; padding: 0; }
     .servicos li { margin: 10px 0; font-weight: bold; color: #0077b6; }
 
-    footer { background-color: #0077b6; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    footer {
+      background-color: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero img {
+        margin-top: 30px;
+        max-width: 80%;
+      }
       nav a { display: block; margin: 10px 0; }
     }
   </style>
@@ -41,40 +122,61 @@
 
   <header>
     <nav>
-      <a href="#sobre">Sobre</a>
+      <a href="#home">Home</a>
       <a href="#servicos">Serviços</a>
-      <a href="#contato">Contato</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#planos">Planos</a>
+      <a href="#banho">Banho e Tosa</a>
+      <a href="#enderecos">Endereços</a>
+      <a href="#avaliacao">Avaliação</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Clínica Veterinária Love Pet 24 Horas</h1>
-    <p>Cuidamos do seu melhor amigo com amor e dedicação, a qualquer hora do dia ou da noite.</p>
-    <button class="cta-button" onclick="document.getElementById('contato').scrollIntoView({ behavior: 'smooth' })">Fale Conosco</button>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Clínica Veterinária Love Pet 24 Horas</h1>
+      <p>Cuidamos do seu melhor amigo com amor e dedicação, a qualquer hora do dia ou da noite.</p>
+      <button class="cta-button" onclick="document.getElementById('enderecos').scrollIntoView({ behavior: 'smooth' })">Fale Conosco</button>
+    </div>
+    <img src="https://raw.githubusercontent.com/CintiaSedenho/Projeto-Clinica-LovePet/main/img1.png" alt="Cachorro feliz na clínica Love Pet">
   </section>
 
-  <section id="sobre" class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Na Love Pet, acreditamos que cada animal merece cuidado, carinho e atenção. Nossa equipe está disponível 24 horas por dia, oferecendo atendimento veterinário completo e humanizado.</p>
-  </section>
-
-  <section id="servicos" class="servicos">
+  <section id="servicos" class="conteudo servicos">
     <h2>Nossos Serviços</h2>
     <ul>
       <li>Atendimento 24h</li>
-      <li>Banho e Tosa</li>
       <li>Vacinação e Consultas</li>
       <li>Exames Laboratoriais</li>
       <li>Internação e Cirurgias</li>
     </ul>
   </section>
 
-  <section id="contato" class="contato">
-    <h2>Entre em Contato</h2>
-    <p>📍 Endereço: Av. Principal, 123 - Praia Grande, SP</p>
+  <section id="promocoes" class="conteudo">
+    <h2>Promoções</h2>
+    <p>Aproveite nossos pacotes especiais de cuidados e descontos para clientes fiéis!</p>
+  </section>
+
+  <section id="planos" class="conteudo">
+    <h2>Planos de Saúde Pet</h2>
+    <p>Conheça nossos planos mensais e garanta atendimento contínuo e preventivo para o seu pet.</p>
+  </section>
+
+  <section id="banho" class="conteudo">
+    <h2>Banho e Tosa</h2>
+    <p>Serviço completo de higiene e estética animal, com produtos hipoalergênicos e muito carinho.</p>
+  </section>
+
+  <section id="enderecos" class="conteudo">
+    <h2>Endereços</h2>
+    <p>📍 Av. Principal, 123 - Praia Grande, SP</p>
     <p>📞 Telefone: (13) 99999-9999</p>
     <p>💬 WhatsApp: (13) 98888-8888</p>
     <button class="cta-button" onclick="window.open('https://wa.me/5513988888888', '_blank')">Fale pelo WhatsApp</button>
+  </section>
+
+  <section id="avaliacao" class="conteudo">
+    <h2>Avalie Nosso Atendimento</h2>
+    <p>Seu feedback é muito importante para continuarmos melhorando!</p>
   </section>
 
   <footer>
