@@ -4,116 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Pet - Clínica Veterinária 24h</title>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
     body { font-family: Arial, sans-serif; background-color: #f0f9f9; color: #222; }
 
+    /* ======================= HEADER ======================= */
     header {
       background-color: #0077b6;
       color: white;
-      padding: 20px 0;
-      text-align: center;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
+    /* Menu desktop */
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover { color: #c1f0c1; }
 
-    /* === HERO (banner) === */
-    .hero {
-      background: linear-gradient(135deg, #00b4d8, #90e0ef, #00c49a);
-      color: white;
-      padding: 100px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .hero-content {
-      flex: 1 1 50%;
-      text-align: left;
-      max-width: 500px;
-    }
-
-    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
-
-    .cta-button {
-      background-color: #0077b6;
-      color: #fff;
-      padding: 15px 30px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1.1rem;
-      font-weight: bold;
+    /* ======================= HAMBURGUER (MOBILE) ======================= */
+    .menu-btn {
+      display: none;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 30px;
+      user-select: none;
     }
 
-    .cta-button:hover { background-color: #00b4d8; }
-
-    /* === IMAGEM DO BANNER === */
-    .hero img {
-      flex: 1 1 40%;
-      max-width: 420px;
-      width: 100%;
-      height: auto;
-      clip-path: path('M10,150 C30,80 100,20 180,40 C260,60 330,100 360,160 C390,220 360,280 300,320 C240,360 160,370 100,330 C40,290 -10,220 10,150Z');
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+    /* Painel lateral */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #0077b6;
+      padding-top: 60px;
+      transition: 0.4s;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-left: 20px;
     }
 
-    .conteudo {
-      background-color: #fff;
-      margin: 40px auto;
-      max-width: 1000px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      padding: 40px;
-    }
-
-    section { padding: 80px 20px; text-align: center; }
-
-    .servicos ul { list-style: none; padding: 0; }
-    .servicos li { margin: 10px 0; font-weight: bold; color: #0077b6; }
-
-    footer {
-      background-color: #0077b6;
+    .side-menu a {
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
     }
 
+    .side-menu.open {
+      right: 0;
+    }
+
+    /* ======================= MOBILE ======================= */
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
+      nav {
+        display: none; /* oculta menu desktop */
       }
-      .hero-content {
-        text-align: center;
+
+      .menu-btn {
+        display: block; /* mostra botão */
       }
-      .hero img {
-        margin-top: 30px;
-        max-width: 80%;
-      }
-      nav a { display: block; margin: 10px 0; }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- ======================= HEADER ======================= -->
   <header>
+    <h2>Love Pet</h2>
+
+    <!-- Botão hamburguer -->
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+    <!-- Menu desktop -->
     <nav>
       <a href="#home">Home</a>
       <a href="#servicos">Serviços</a>
@@ -125,57 +107,22 @@
     </nav>
   </header>
 
-  <!-- HERO COM ID HOME CORRIGIDO -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Clínica Veterinária Love Pet 24 Horas</h1>
-      <p>Cuidamos do seu melhor amigo com amor e dedicação, a qualquer hora do dia ou da noite.</p>
-      <button class="cta-button" onclick="document.getElementById('enderecos').scrollIntoView({ behavior: 'smooth' })">Fale Conosco</button>
-    </div>
-    <img src="https://raw.githubusercontent.com/CintiaSedenho/Projeto-Clinica-LovePet/main/img1.png" alt="Cachorro feliz na clínica Love Pet">
-  </section>
+  <!-- MENU MOBILE LATERAL -->
+  <div class="side-menu" id="sideMenu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+    <a href="#promocoes" onclick="toggleMenu()">Promoções</a>
+    <a href="#planos" onclick="toggleMenu()">Planos</a>
+    <a href="#banho" onclick="toggleMenu()">Banho e Tosa</a>
+    <a href="#enderecos" onclick="toggleMenu()">Endereços</a>
+    <a href="#avaliacao" onclick="toggleMenu()">Avaliação</a>
+  </div>
 
-  <section id="servicos" class="conteudo servicos">
-    <h2>Nossos Serviços</h2>
-    <ul>
-      <li>Atendimento 24h</li>
-      <li>Vacinação e Consultas</li>
-      <li>Exames Laboratoriais</li>
-      <li>Internação e Cirurgias</li>
-    </ul>
-  </section>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+  </script>
 
-  <section id="promocoes" class="conteudo">
-    <h2>Promoções</h2>
-    <p>Aproveite nossos pacotes especiais de cuidados e descontos para clientes fiéis!</p>
-  </section>
-
-  <section id="planos" class="conteudo">
-    <h2>Planos de Saúde Pet</h2>
-    <p>Conheça nossos planos mensais e garanta atendimento contínuo e preventivo para o seu pet.</p>
-  </section>
-
-  <section id="banho" class="conteudo">
-    <h2>Banho e Tosa</h2>
-    <p>Serviço completo de higiene e estética animal, com produtos hipoalergênicos e muito carinho.</p>
-  </section>
-
-  <section id="enderecos" class="conteudo">
-    <h2>Endereços</h2>
-    <p>📍 Av. Principal, 123 - Praia Grande, SP</p>
-    <p>📞 Telefone: (13) 99999-9999</p>
-    <p>💬 WhatsApp: (13) 98888-8888</p>
-    <button class="cta-button" onclick="window.open('https://wa.me/5513988888888', '_blank')">Fale pelo WhatsApp</button>
-  </section>
-
-  <section id="avaliacao" class="conteudo">
-    <h2>Avalie Nosso Atendimento</h2>
-    <p>Seu feedback é muito importante para continuarmos melhorando!</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Love Pet - Todos os direitos reservados.</p>
-  </footer>
-
-</body>
 </html>
+
