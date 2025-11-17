@@ -19,18 +19,7 @@
       z-index: 1000;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: #c1f0c1; }
-
-    section { padding: 80px 20px; text-align: center; }
-
+    
     /* === HERO (banner) === */
     .hero {
       background: linear-gradient(135deg, #00b4d8, #90e0ef, #00c49a);
@@ -81,7 +70,6 @@
   clip-path: path('M10,150 C30,80 100,20 180,40 C260,60 330,100 360,160 C390,220 360,280 300,320 C240,360 160,370 100,330 C40,290 -10,220 10,150Z');
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
 }
-
     .conteudo {
       background-color: #fff;
       margin: 40px auto;
@@ -90,6 +78,17 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       padding: 40px;
     }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #c1f0c1; }
+    section { padding: 80px 20px; text-align: center; }
 
     .servicos ul { list-style: none; padding: 0; }
     .servicos li { margin: 10px 0; font-weight: bold; color: #0077b6; }
@@ -101,7 +100,6 @@
       padding: 20px;
       margin-top: 50px;
     }
-
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
@@ -185,3 +183,4 @@
 
 </body>
 </html>
+
