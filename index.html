@@ -10,8 +10,7 @@
 
     body { font-family: Arial, sans-serif; background-color: #f0f9f9; color: #222; }
 
-    /* ======================= HEADER ======================= */
-    header {
+      header {
       background-color: #0077b6;
       color: white;
       padding: 15px 20px;
@@ -22,9 +21,7 @@
       top: 0;
       z-index: 1000;
     }
-
-    /* Menu desktop */
-    nav {
+      nav {
       display: flex;
       gap: 15px;
     }
@@ -38,7 +35,6 @@
 
     nav a:hover { color: #c1f0c1; }
 
-    /* ======================= HAMBURGUER (MOBILE) ======================= */
     .menu-btn {
       display: none;
       cursor: pointer;
@@ -46,7 +42,6 @@
       user-select: none;
     }
 
-    /* Painel lateral */
     .side-menu {
       position: fixed;
       top: 0;
@@ -73,7 +68,6 @@
       right: 0;
     }
 
-    /* ======================= HERO ======================= */
     .hero {
       background: linear-gradient(135deg, #00b4d8, #90e0ef, #00c49a);
       color: white;
@@ -138,8 +132,7 @@
       padding: 20px;
       margin-top: 50px;
     }
-
-    /* ======================= MOBILE ======================= */
+    
     @media (max-width: 768px) {
       nav { display: none; }
       .menu-btn { display: block; }
@@ -161,7 +154,6 @@
 
 <body>
 
-  <!-- ======================= HEADER ======================= -->
   <header>
     <h2>Love Pet</h2>
 
@@ -197,8 +189,7 @@
     }
   </script>
 
-  <!-- ======================= HERO ======================= -->
-  <section id="home" class="hero">
+    <section id="home" class="hero">
     <div class="hero-content">
       <h1>Clínica Veterinária Love Pet 24 Horas</h1>
       <p>Cuidamos do seu melhor amigo com amor e dedicação, a qualquer hora do dia ou da noite.</p>
